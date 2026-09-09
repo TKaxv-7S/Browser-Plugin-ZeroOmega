@@ -48,7 +48,7 @@ class FirefoxProxyImpl extends ProxyImpl
         blobUrl = URL.createObjectURL(blob)
         browser.proxy.settings.set({
           value: {
-            proxyDNS: profile.proxyDNS,
+            proxyDNS: profile.proxyDNS isnt false,
             proxyType: 'autoConfig',
             autoConfigUrl: blobUrl
           }
@@ -93,7 +93,7 @@ class FirefoxProxyImpl extends ProxyImpl
     ))
   onError: (error) ->
     @log.error(error)
-  proxyInfo: (proxy, auth, proxyDNS) ->
+  proxyInfo: (proxy, auth, proxyDNS=true) ->
     proxyInfo =
       type: proxy.scheme
       host: proxy.host

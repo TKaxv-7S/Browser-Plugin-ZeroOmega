@@ -48,7 +48,7 @@ FindProxyForURL = (function () {
             // https://dxr.mozilla.org/mozilla-central/rev/ffe6cc09ccf38cca6f0e727837bbc6cb722d1e71/toolkit/components/extensions/ProxyScriptContext.jsm#51
             proxyInfo.type = 'socks';
             // Enable SOCKS5 remote DNS.
-            if (profile.proxyDNS) {
+            if (profile.proxyDNS !== false) {
               proxyInfo.proxyDNS = true;
             }
           }

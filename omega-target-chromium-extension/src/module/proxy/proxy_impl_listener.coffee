@@ -57,7 +57,7 @@ class ListenerProxyImpl extends ProxyImpl
     ))
   onError: (error) ->
     @log.error(error)
-  proxyInfo: (proxy, auth, proxyDNS) ->
+  proxyInfo: (proxy, auth, proxyDNS=true) ->
     proxyInfo =
       type: proxy.scheme
       host: proxy.host
